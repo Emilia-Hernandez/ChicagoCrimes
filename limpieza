@@ -22,10 +22,7 @@ CREATE TABLE raw.rawCrimes
     longitude            numeric,
     location            text
 );
-/*
-Despues de corres el código de arriba, abrir la consola, conecatrse a la base de datos y correr
-\copy raw.rawCrimes FROM 'C:\\Users\\emilia\\OneDrive - Escuela Moderna Americana\\Escritorio\\MAE\\Crimes_-_One_year_prior_to_present_20240410.csv' WITH (FORMAT CSV, HEADER true, DELIMITER ',');
-*/
+
 
 /*
 Despues de corres el código de arriba, abrir la consola, conecatrse a la base de datos y correr
