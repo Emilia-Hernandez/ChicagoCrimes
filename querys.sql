@@ -43,6 +43,17 @@ SELECT ward, hora, numero_crimenes
 FROM ranking_hora_mas_peligrosa_por_ward
 WHERE ranking_hora = 1;
 
+--CRIMEN MÁS FRECUENTE
+DROP VIEW IF EXISTS ranking_frecuencia_tipo_de_crimen;
+CREATE or replace view ranking_frecuencia_tipo_de_crimen AS
+SELECT primarydescription, COUNT(*) numero_crimenes, ROW_NUMBER() OVER (ORDER BY COUNT(*) DESC) AS ranking_crimen_mas_popular
+FROM horaConCrimen
+GROUP BY primarydescription
+ORDER BY count(*) desc;
+
+SELECT *
+FROM ranking_frecuencia_tipo_de_crimen;
+
 --ranking horas mas comunes por crimen
 DROP VIEW IF EXISTS ranking_hora_mas_peligrosa_por_crimen CASCADE;
 CREATE OR REPLACE VIEW ranking_hora_mas_peligrosa_por_crimen AS
