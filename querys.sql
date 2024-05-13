@@ -77,3 +77,14 @@ GROUP BY domestic, hora;
 SELECT domestic, HORA, NUMERO_CRIMENES
 FROM ranking_hora_mas_peligrosa_domesticidad
 WHERE ranking_hora <=5;
+
+--RELACIÓN DOMESTICIDAD CON ARRESTO
+DROP VIEW IF EXISTS relacion_arresto_domesticidad ;
+CREATE OR REPLACE VIEW relacion_arresto_domesticidad AS
+SELECT domestic,arrest,  count(*) as numero_crimenes
+FROM cleaning.crimeslimpia
+GROUP BY domestic, arrest;
+
+SELECT *
+FROM relacion_arresto_domesticidad
+ORDER BY domestic,arrest;
