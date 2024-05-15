@@ -61,6 +61,7 @@ SELECT primarydescription, hora, count(*) as numero_crimenes, ROW_NUMBER() OVER 
 FROM horaLugarDomPrimDes
 GROUP BY primarydescription, hora;
 
+--HORA MÁS FRECUENTE POR CRIMEN
 SELECT *
 FROM ranking_hora_mas_peligrosa_por_crimen
 WHERE ranking_hora=1
